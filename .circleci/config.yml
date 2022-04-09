@@ -13,7 +13,6 @@ jobs:
         paths: 
           - /src/node_modules
       - run: npm run lint
-      
    test:
     docker:
       - image: circleci/node:13.8.0
@@ -24,7 +23,6 @@ jobs:
           - "npm-package"
       - run: npm i
       - run: npm run test
-      
    analyze:
       docker:
         - image: circleci/node:13.8.0
