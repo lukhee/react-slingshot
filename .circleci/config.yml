@@ -18,9 +18,9 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-#       - restore_cache: 
-#           key: 
-#             - "npm-package"
+      - restore_cache: 
+          keys: 
+            - "npm-package"
       - run: npm i
       - run: npm run test
   analyze:
@@ -28,9 +28,9 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      # - restore_cache: 
-      #     key: 
-      #       - "npm-package"
+      - restore_cache: 
+          keys: 
+            - "npm-package"
       - run: npm audit
 
 # Invoke jobs via workflows
