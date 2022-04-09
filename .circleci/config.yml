@@ -39,7 +39,7 @@ workflows:
   node-project-workflow:
     jobs:
       - build
-      - test
+      - test:
           requires:
             - build
       - analyze
