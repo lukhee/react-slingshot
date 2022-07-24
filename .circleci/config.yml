@@ -12,34 +12,34 @@ jobs:
             - /src/node_modules
       - run: npm run lint
           
-  test:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache: 
-          keys: 
-            - "npm-package"
-      - run: npm i
-      - run: npm run test
+  # test:
+  #   docker:
+  #     - image: circleci/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache: 
+  #         keys: 
+  #           - "npm-package"
+  #     - run: npm i
+  #     - run: npm run test
 
-  analy:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache: 
-          keys: 
-            - "npm-package"
-      - run: npm run audit
+  # analy:
+  #   docker:
+  #     - image: circleci/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache: 
+  #         keys: 
+  #           - "npm-package"
+  #     - run: npm run audit
 
 workflows:
   say-hello-workflow:
     jobs:
       - build
-      - test:
-          requires: 
-            - build
-      - analy:
-          requires: 
-            - build
+      # - test:
+      #     requires: 
+      #       - build
+      # - analy:
+      #     requires: 
+      #       - build
