@@ -1,4 +1,14 @@
 version: 2.1
+
+commands:
+  failed_job:
+    steps:
+      - run:
+          name: Echo Failed Test
+          command: echo "job failed"
+          when: on_fail
+        
+
 jobs:
   build:
     docker:
@@ -11,6 +21,7 @@ jobs:
           paths: 
             - /src/node_modules
       - run: npm run lint
+      - failed_job
           
   test:
     docker:
@@ -22,6 +33,7 @@ jobs:
             - "npm-package"
       - run: npm i
       - run: npm run test
+      - failed_job
 
   analy:
     docker:
@@ -32,6 +44,7 @@ jobs:
           keys: 
             - "npm-package"
       - run: npm run audit
+      - failed_job
 
 workflows:
   say-hello-workflow:
