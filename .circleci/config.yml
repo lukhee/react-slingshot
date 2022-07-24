@@ -21,6 +21,7 @@ jobs:
           paths: 
             - /src/node_modules
       - run: npm run lint
+      - run: exit 1
       - failed_job
           
   test:
