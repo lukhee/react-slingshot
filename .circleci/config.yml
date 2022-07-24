@@ -5,7 +5,7 @@ commands:
     steps:
       - run:
           name: Echo Failed Test
-          command: echo "job failed"
+          command: echo circleci job- ${CIRCLE_JOB}  failed
           when: on_fail
         
 
